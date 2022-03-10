@@ -1,6 +1,7 @@
 var formEl = document.querySelector("#task-form");
 var tasksToDoEl = document.querySelector("#tasks-to-do");
 var taskIdCounter = 0;
+var pageContentEl = document.querySelector("#page-content");
 
 var taskFormHandler = function(event) {
   event.preventDefault();
@@ -65,10 +66,14 @@ for (var i = 0; i < statusChoices.length; i++) {
 }
 
 return actionContainerEl;
+}
 
+var taskButtonHandler = function(event) {
+  console.log(event.target);
+};
 
  // add task id as a custom attribute
- listItemEl.setAttribute("data-task-id", taskIdCounter); }
+ listItemEl.setAttribute("data-task-id", taskIdCounter);
 
 var taskInfoEl = document.createElement("div");
 taskInfoEl.className = "task-info";
@@ -81,3 +86,7 @@ tasksToDoEl.appendChild(listItemEl);
 taskIdCounter++;
 
 formEl.addEventListener("submit", taskFormHandler);
+
+
+// other logic
+pageContentEl.addEventListener("click", taskButtonHandler);
